@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.net.*;
 
 public class ConnectionModel {
-	static public Connection getConnection() throws SQLException {
+	static public Connection getConnection() throws Exception {
  		Connection c = null;
 // 		c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/urbanclap-clone1","postgres", "aakash@123");
 		URI dbUri = new URI(System.getenv("DATABASE_URL"));
