@@ -13,7 +13,8 @@ public class ModelType {
 	public ModelType() {
 		
 	}
-	
+
+	//deploy	
 	public ModelType(int id,String name,double rating,int rating_count,String address,String verified,String location) {
 		this.id = id;
 		this.name = name;
