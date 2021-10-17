@@ -62,7 +62,6 @@ public class ACRepairController {
 	
 	@GetMapping("/nearest")
     public ResponseEntity<List<ModelType>> getAllNearest(@RequestParam(defaultValue="0.0") double longitude,
-<<<<<<< HEAD
     		@RequestParam(defaultValue="0.0") double latitude,@RequestParam(defaultValue="2000") double distance){
     	List<ModelType> temp = new ArrayList<ModelType>();
     	 Connection c = null;
@@ -105,8 +104,6 @@ public class ACRepairController {
 	
 	@GetMapping("/closest")
     public ResponseEntity<List<ModelType>> getAllClosestAscending(@RequestParam(defaultValue="0.0") double longitude,
-=======
->>>>>>> 32d2268ab003ac60ab8ec0b9c7bcbe21926bbc0c
     		@RequestParam(defaultValue="0.0") double latitude){
     	List<ModelType> temp = new ArrayList<ModelType>();
     	 Connection c = null;
