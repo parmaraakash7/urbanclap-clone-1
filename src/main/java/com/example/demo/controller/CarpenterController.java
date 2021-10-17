@@ -60,7 +60,11 @@ public class CarpenterController {
 	
 	@GetMapping("/nearest")
     public ResponseEntity<List<ModelType>> getAllNearest(@RequestParam(defaultValue="0.0") double longitude,
+<<<<<<< HEAD
     		@RequestParam(defaultValue="0.0") double latitude,@RequestParam(defaultValue="2000") double dist){
+=======
+    		@RequestParam(defaultValue="0.0") double latitude){
+>>>>>>> 32d2268ab003ac60ab8ec0b9c7bcbe21926bbc0c
     	List<ModelType> temp = new ArrayList<ModelType>();
     	 Connection c = null;
          Statement stmt = null;
@@ -73,7 +77,11 @@ public class CarpenterController {
 
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT id,name,rating,rating_count,address,"
+<<<<<<< HEAD
             		+ "verified,ST_AsGeoJSON(location) from carpenter_mumbai where ST_DWithin(location::geography,ST_GeomFromText('POINT("+longitude+" "+latitude+")')::geography,"+dist+");" );
+=======
+            		+ "verified,ST_AsGeoJSON(location) from carpenter_mumbai where ST_DWithin(location::geography,ST_GeomFromText('POINT("+longitude+" "+latitude+")')::geography,"+ConnectionModel.FIVE_KM+");" );
+>>>>>>> 32d2268ab003ac60ab8ec0b9c7bcbe21926bbc0c
             
             while ( rs.next() ) {
                int id = rs.getInt("id");
@@ -97,6 +105,7 @@ public class CarpenterController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
          }
     }
+<<<<<<< HEAD
 	
 	@GetMapping("/closest")
     public ResponseEntity<List<ModelType>> getAllClosestAscending(@RequestParam(defaultValue="0.0") double longitude,
@@ -141,3 +150,6 @@ public class CarpenterController {
          }
     }
 }
+=======
+}
+>>>>>>> 32d2268ab003ac60ab8ec0b9c7bcbe21926bbc0c
