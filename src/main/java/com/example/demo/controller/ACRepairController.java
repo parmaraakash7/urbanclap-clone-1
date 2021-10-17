@@ -118,11 +118,7 @@ public class ACRepairController {
 
             stmt = c.createStatement();
             rs = stmt.executeQuery( "SELECT id,name,rating,rating_count,address,"
-<<<<<<< HEAD
             		+ "verified,ST_AsGeoJSON(location),ST_Distance(location::geography,ST_GeomFromText('POINT("+longitude+" "+latitude+")')::geography) from ac_repair_mumbai order by ST_Distance(location::geography,ST_GeomFromText('POINT("+longitude+" "+latitude+")')::geography); ");
-=======
-            		+ "verified,ST_AsGeoJSON(location) from ac_repair_mumbai where ST_DWithin(location::geography,ST_GeomFromText('POINT("+longitude+" "+latitude+")')::geography,"+ConnectionModel.FIVE_KM+");" );
->>>>>>> 32d2268ab003ac60ab8ec0b9c7bcbe21926bbc0c
             
             while ( rs.next() ) {
                int id = rs.getInt("id");
@@ -132,13 +128,9 @@ public class ACRepairController {
                String address = rs.getString("address");
                String verified = rs.getString("verified");
                String location = rs.getString("st_asgeojson");
-<<<<<<< HEAD
                double distance = rs.getDouble("st_distance");
                System.out.println(distance);
                temp.add(new ModelType(id,name,rating,rating_count,address,verified,location,distance));
-=======
-               temp.add(new ModelType(id,name,rating,rating_count,address,verified,location));
->>>>>>> 32d2268ab003ac60ab8ec0b9c7bcbe21926bbc0c
                
                
             }
@@ -152,8 +144,4 @@ public class ACRepairController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
          }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 32d2268ab003ac60ab8ec0b9c7bcbe21926bbc0c
