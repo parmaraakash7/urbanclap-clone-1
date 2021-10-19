@@ -35,7 +35,6 @@ public class ModelType {
 		this.verified = verified;
 		this.location = location;
 		this.distance = distance;
-		System.out.println("Here "+this.distance);
 	}
 
 	/**
